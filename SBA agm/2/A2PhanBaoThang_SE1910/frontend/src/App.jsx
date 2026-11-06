@@ -158,18 +158,16 @@ function App() {
                     Lịch sử bài viết
                   </a>
                 </li>
+                <li>
+                  <a
+                    className={`sidebar-link ${activeTab === 'profile' ? 'active' : ''}`}
+                    onClick={() => setActiveTab('profile')}
+                  >
+                    Thông tin cá nhân
+                  </a>
+                </li>
               </>
             )}
-
-            {/* Menu chung: Hồ sơ cá nhân */}
-            <li>
-              <a
-                className={`sidebar-link ${activeTab === 'profile' ? 'active' : ''}`}
-                onClick={() => setActiveTab('profile')}
-              >
-                Thông tin cá nhân
-              </a>
-            </li>
 
             {/* Xem trang tin tức công khai */}
             <li>
@@ -200,7 +198,7 @@ function App() {
             <StaffHistoryPage currentUser={currentUser} />
           )}
 
-          {activeTab === 'profile' && (
+          {currentUser.accountRole === 2 && activeTab === 'profile' && (
             <StaffProfilePage
               currentUser={currentUser}
               onProfileUpdated={handleProfileUpdated}
