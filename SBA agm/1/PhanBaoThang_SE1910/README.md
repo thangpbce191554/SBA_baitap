@@ -9,15 +9,17 @@
 ---
 
 ## 1. Giới thiệu tổng quan hệ thống
-**FUNewsManagementSystem** là ứng dụng Single Page Application (SPA) xây dựng bằng **ReactJS 19** và công cụ build **Vite 8**. Ứng dụng cung cấp bảng điều khiển quản trị tin tức toàn diện cho các ban biên tập, bao gồm:
-- **Xác thực người dùng:** Đăng nhập phân quyền (Admin / Staff), phiên làm việc tự lưu trữ qua `localStorage`.
-- **Quản lý Danh mục (Category Management):** Thao tác CRUD, tìm kiếm, ràng buộc toàn vẹn khóa ngoại (Foreign Key Restrict Policy).
-- **Quản lý Bài viết Tin tức (News Management):** Thao tác CRUD, liên kết danh mục hợp lệ, gắn nhãn tags, xuất bản bài viết.
-- **Quản lý Tài khoản (User Management):** Thao tác CRUD, phân quyền vai trò (Admin / Staff), bảo vệ không cho tự xóa tài khoản đang đăng nhập.
-- **Bảng điều khiển (Dashboard):** Tổng hợp số liệu thống kê thời gian thực của các thực thể trong hệ thống.
-- **Cài đặt & Hồ sơ (Settings):** Xem thông tin phiên làm việc và cấu hình ứng dụng.
+đề tài của em là FUNewsManagementSystem – Hệ thống quản trị tin tức trường học. Yêu cầu đặt ra là xây dựng một ứng dụng dạng SPA (Single Page Application). Hệ thống cần có các màn hình: Đăng nhập/Đăng xuất, Dashboard thống kê, và 3 module quản lý chính gồm Chuyên mục (Category), Bài viết (News), Người dùng (Users) đều phải có chức năng Thêm, Sửa, Xóa và Tìm kiếm. Cuối cùng là trang Cài đặt (Settings)."
+
+solution:
+Thứ nhất về điều hướng: Em dùng state activeTab tại App.jsx để chuyển trang theo điều kiện, giúp app nhẹ và không bị reload lại trang.
+Thứ hai về lưu trữ: Em dùng localStorage (file storageService.js) kết hợp useEffect nạp dữ liệu ban đầu, nhờ vậy khi nhấn F5 không bị mất data.
+Thứ ba về ràng buộc: Lớp Form thì kiểm tra rỗng; còn Tầng Service thì chặn xóa Chuyên mục nếu đang có bài viết, và chặn tự xóa tài khoản đang đăng nhập.*"
 
 ---
+
+
+
 
 ## 2. Hướng dẫn cài đặt và chạy ứng dụng
 
